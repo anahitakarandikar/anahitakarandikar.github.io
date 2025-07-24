@@ -1,8 +1,8 @@
-title: Your Name
-author: Your Name
-email: your.email@example.com
+title: Anahita Karandikar
+author: Anahita Karandikar
+email: ak234@student.ubc.ca
 description: >-
-  Personal academic website
+  
 
 theme: minima
 
@@ -13,5 +13,6 @@ header_pages:
 
 minima:
   social_links:
-    github: yourusername
-    linkedin: your-linkedin-url
+    github: anahitakarandikar
+    linkedin: https://www.linkedin.com/in/anahita-karandikar
+    X: anahitark
