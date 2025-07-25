@@ -1,0 +1,24 @@
+baseURL = "https://anahitakarandikar.github.io/"
+languageCode = "en-us"
+title = "Anahita Karandikar"
+theme = "academimal"
+
+[params]
+  author = "Anahita Karandikar"
+  description = "PhD Candidate in Economics, UBC"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Research"
+    url = "/research/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Women in Econ/Policy"
+    url = "/women/"
+    weight = 3
