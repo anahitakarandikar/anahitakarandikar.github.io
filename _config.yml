@@ -1,18 +1,16 @@
 title: Anahita Karandikar
 author: Anahita Karandikar
 email: ak234@student.ubc.ca
-description: >-
-  
 
-theme: minima
+description: |
+  PhD Candidate in Economics at UBC  
+  Research fields: Behavioural Development Economics, Political Economy
+
+theme: jekyll-theme-minimal
+
+logo: /assets/profile.jpg
 
 header_pages:
   - index.md
   - research/index.md
   - mentorship/index.md
-
-minima:
-  social_links:
-    github: anahitakarandikar
-    linkedin: https://www.linkedin.com/in/anahita-karandikar
-  
