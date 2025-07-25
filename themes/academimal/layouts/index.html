@@ -4,15 +4,15 @@
 {{ .Content }}
 {{ end }}
 
-{{ define "main" }}
-  {{ if .Site.Params.avatar }}
-    <p style="text-align: center;">
-      <img src="{{ .Site.Params.avatar | relURL }}" width="180" style="border-radius: 10px;" />
-    </p>
-  {{ end }}
-
-  {{ .Content }}
+{{ if .Site.Params.avatar }}
+  <p style="text-align: center;">
+    <img src="{{ .Site.Params.avatar | relURL }}" width="180" style="border-radius: 10px;" />
+  </p>
 {{ end }}
+
+<main class="content">
+  {{ .Content }}
+</main>
 
 
 {{ with .GetPage "/sections/contact.md" }}
