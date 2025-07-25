@@ -6,12 +6,19 @@ theme = "academimal"
 [params]
   author = "Anahita Karandikar"
   description = "PhD Candidate in Economics, UBC"
+  bio = "PhD Candidate in Economics, UBC"
+  avatar = "img/profile.jpg"
 
 [menu]
   [[menu.main]]
     name = "Home"
     url = "/"
     weight = 1
+
+    [[menu.main]]
+    name = "CV"
+    url = "files/CV.pdf"
+    weight = 2
 
   [[menu.main]]
     name = "Research"
