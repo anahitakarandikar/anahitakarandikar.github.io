@@ -1,22 +1,20 @@
+<!-- Name -->
+<h1 class="author-name">Anahita Karandikar</h1>
+
+<!-- Profile Photo -->
+{{ with .Site.Params.avatar }}
+  <div class="profile-pic">
+    <img src="{{ . | relURL }}" alt="Profile picture">
+  </div>
+{{ end }}
+
+<!-- CV Link -->
+<p class="contactinfo">
+  <a href="{{ "files/CV.pdf" | relURL }}" target="_blank">CV</a>
+</p>
+
+<!-- Section Links -->
 <p class="contactinfo"><a href="{{ "#bio" | relURL }}">Bio</a></p>
-{{ with .GetPage "/sections/contact.md" }}
-<p class="contactinfo"><a href="{{ "#contact" | relURL }}">Contact</a></p>
-{{ end }}
-{{ with .GetPage "/sections/office-hours.md" }}
-<p class="contactinfo"><a href="{{ "#officehours" | relURL }}">Office Hours</a></p>
-{{ end }}
-{{ with .Site.Data.publications }}
-<p class="contactinfo"><a href="{{ "#publications" | relURL }}">Publications</a></p>
-{{ end }}
-{{ with .Site.Data.working_papers }}
-<p class="contactinfo"><a href="{{ "#workingpapers" | relURL }}">Working Papers</a></p>
-{{ end }}
-{{ with .Site.Data.work_in_progress }}
-<p class="contactinfo"><a href="{{ "#workinprogress" | relURL }}">Work in Progress</a></p>
-{{ end }}
-{{ with .GetPage "/sections/from-another-life.md" }}
-<p class="contactinfo"><a href="{{ "#fromanotherlife" | relURL }}">From Another Life</a></p>
-{{ end }}
-{{ with .GetPage "/sections/personal.md" }}
-<p class="lastcontactinfo"><a href="{{ "#personal" | relURL }}">Personal</a></p>
-{{ end }}
+<p class="contactinfo"><a href="{{ "/research/" | relURL }}">Research</a></p>
+<p class="contactinfo"><a href="{{ "/women/" | relURL }}">Women in Econ/Policy</a></p>
+
