@@ -1,5 +1,5 @@
 ---
-title: "Welcome"
+title: "Home"
 ---
 
 Hello! I am a PhD Candidate in Economics at the Vancouver School of Economics (University of British Columbia).  My research fields are behavioural development economics and political economy, with a focus on gender and caste.  I am a Director at [Women in Econ/Policy](https://www.womenineconpolicy.com/), an India-based non-profit working to reduce the gender gap in economics and public policy.
