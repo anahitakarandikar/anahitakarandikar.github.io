@@ -1,14 +1,21 @@
-title: Anahita Karandikar
-author: Anahita Karandikar
-email: ak234@student.ubc.ca
+title: "Anahita Karandikar"
+email: "your_email@example.com"
+description: "PhD Student, Food and Resource Economics, UBC"
+url: "https://anahitakarandikar.github.io"
+baseurl: ""
 
-description: PhD Candidate in Economics, UBC 
+markdown: kramdown
+permalink: /:title/
 
-theme: jekyll-theme-minimal
+collections:
+  pages:
+    output: true
+    permalink: /:path/
 
-logo: /assets/profile.jpg
+sass:
+  style: compressed
 
-header_pages:
-  - index.md
-  - research/index.md
-  - mentorship/index.md
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
