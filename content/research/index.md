@@ -1,7 +1,8 @@
 ---
 title: "Research"
+menu: main
+weight: 3
 ---
-
 #### Publications
 
 **[Learning from Job Offers About Labor Supply Constraints](/files/LearningfromJobOffers_2025_HoJalotaKarandikar.pdf)**  
