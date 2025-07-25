@@ -3,25 +3,31 @@ layout: default
 title: ""
 ---
 
-Hello! I am a PhD Candidate in Economics at the Vancouver School of Economics (University of British Columbia).  
-My research fields are behavioural development economics and political economy, with a focus on gender and caste.  
-I am a Director at [Women in Econ/Policy](https://www.womenineconpolicy.com/), an India-based non-profit working to reduce the gender gap in economics and public policy.
+Hello! I am a PhD Candidate in Economics at the Vancouver School of Economics (University of British Columbia).  My research fields are behavioural development economics and political economy, with a focus on gender and caste.  I am a Director at [Women in Econ/Policy](https://www.womenineconpolicy.com/), an India-based non-profit working to reduce the gender gap in economics and public policy.
 
-I received an MA in economics from Ashoka University and a BA in economics from Fergusson College, Pune.  
-I was a research associate at the [Behavioral Development Lab](https://behavioraldevlab.org/) at J-PAL South Asia, where I worked on projects related to mental health.
+I received an MA in economics from Ashoka University and a BA in economics from Fergusson College, Pune.  I was a research associate at the [Behavioral Development Lab](https://behavioraldevlab.org/) at J-PAL South Asia, where I worked on projects related to mental health.
 
 ---
 
-###  [View my CV](/assets/CV.pdf) |  [ak234@mail.ubc.ca](mailto:ak234@mail.ubc.ca)
+##  [CV](/assets/CV.pdf) | Email:  [ak234@mail.ubc.ca](mailto:ak234@mail.ubc.ca)
 
-[![LinkedIn](/assets/linkedin.jpg)](https://www.linkedin.com/in/anahita-karandikar)
-[![X](/assets/x.jpg)](https://x.com/anahitark)
-[![Bluesky](/assets/blusky.jpg)](https://bsky.app/profile/anahitark)
-[![Instagram](/assets/instagram.jpg)](https://instagram.com/anahitakarandikar)
+<a href="https://www.linkedin.com/in/anahita-karandikar" target="_blank">
+  <img src="/assets/linkedin.jpg" alt="LinkedIn" style="height: 20px; margin-right: 8px;">
+</a>
+<a href="https://x.com/anahitark" target="_blank">
+  <img src="/assets/x.jpg" alt="X" style="height: 20px; margin-right: 8px;">
+</a>
+<a href="https://bsky.app/profile/anahitark" target="_blank">
+  <img src="/assets/blusky.jpg" alt="Bluesky" style="height: 20px; margin-right: 8px;">
+</a>
+<a href="https://instagram.com/anahitakarandikar" target="_blank">
+  <img src="/assets/instagram.jpg" alt="Instagram" style="height: 20px; margin-right: 8px;">
+</a>
+
 
 ---
 
-### 🔗 Jump to Section
+### Jump to Section
 
 - [Research](#research)
 - [Women in Econ/Policy](#mentorship)
