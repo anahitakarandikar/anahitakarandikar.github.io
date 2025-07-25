@@ -9,7 +9,8 @@ I received an MA in economics from Ashoka University and a BA in economics from 
 
 ---
 
-####  [CV](/assets/CV.pdf) | Email:  [ak234@mail.ubc.ca](mailto:ak234@mail.ubc.ca) | <a href="https://www.linkedin.com/in/anahita-karandikar" target="_blank">
+####  [CV](/assets/CV.pdf) | Email:  [ak234@mail.ubc.ca](mailto:ak234@mail.ubc.ca) 
+ <a href="https://www.linkedin.com/in/anahita-karandikar" target="_blank">
   <img src="/assets/linkedin.jpg" alt="LinkedIn" style="height: 25px; margin-right: 8px;">
 </a>
 <a href="https://x.com/anahitark" target="_blank">
