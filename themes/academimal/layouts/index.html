@@ -1,19 +1,21 @@
 {{ define "main" -}}
-<h2 id="bio">Bio</h2>
+<!-- <h2 id="bio">Bio</h2> -->
 {{ with .GetPage "/sections/aboutme.md" }}
 {{ .Content }}
 {{ end }}
 
+{{/* Commented out avatar block */}}
+<!-- 
 {{ if .Site.Params.avatar }}
   <p style="text-align: center;">
     <img src="{{ .Site.Params.avatar | relURL }}" width="180" style="border-radius: 10px;" />
   </p>
 {{ end }}
+-->
 
 <main class="content">
   {{ .Content }}
 </main>
-
 
 {{ with .GetPage "/sections/contact.md" }}
 <hr>
@@ -40,7 +42,6 @@
 {{ end }}
 {{ end }}
 {{ end }}
-
 
 {{ with .Site.Data.working_papers }}
 <hr>
@@ -76,5 +77,6 @@
 {{ .Content }}
 {{ end }}
 
-{{ .Content }}
+{{/* Commented out possibly duplicative .Content call */}}
+<!-- {{ .Content }} -->
 {{- end }}
