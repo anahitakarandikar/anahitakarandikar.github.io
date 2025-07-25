@@ -1,0 +1,17 @@
+body {
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* Global link color */
+a {
+  color: #005F73;
+}
+
+/* Page titles and headings */
+h1, h2, h3 {
+  color: #6A1B1A;
+}
+
+footer a[href*="github.com"] {
+  display: none;
+}
