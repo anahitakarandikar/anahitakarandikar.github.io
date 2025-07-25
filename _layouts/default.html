@@ -2,13 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }} | {{ site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
   </head>
   <body>
-
     <div class="wrapper">
       <header>
         {%- if site.logo -%}
@@ -18,11 +17,10 @@
         <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
         <p>{{ site.description }}</p>
 
-        <!-- Custom sidebar content below the logo -->
+        <!-- Custom block for CV and social links -->
         <div class="sidebar-custom">
           <p><a href="/assets/CV.pdf" target="_blank">CV</a></p>
           <p><a href="mailto:ak234@student.ubc.ca">ak234@student.ubc.ca</a></p>
-
           <p>
             <a href="https://www.linkedin.com/in/anahita-karandikar" target="_blank">
               <img src="/assets/linkedin.jpg" alt="LinkedIn" style="height: 20px; margin-right: 5px;">
@@ -39,15 +37,13 @@
           </p>
         </div>
 
-        {%- if site.header_pages -%}
         <nav>
           <ul>
             {%- for page in site.header_pages -%}
-            <li><a href="{{ page | relative_url }}">{{ site.pages | where: "path", page | first | default: page }}</a></li>
+            <li><a href="{{ page.url | relative_url }}">{{ page.title | default: page.name }}</a></li>
             {%- endfor -%}
           </ul>
         </nav>
-        {%- endif -%}
       </header>
 
       <main>
@@ -55,9 +51,8 @@
       </main>
 
       <footer>
-        <p>&copy; {{ site.author }}</p>
+        <small>&copy; {{ site.author }}</small>
       </footer>
     </div>
-
   </body>
 </html>
