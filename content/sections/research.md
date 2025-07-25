@@ -9,7 +9,7 @@ weight: 3
 (with [Lisa Ho](https://lisayzho.github.io/) and [Suhani Jalota](https://www.suhanijalota.me/))  
 <span style="color: grey;"><em>AEA Papers and Proceedings, 2025</em></span>
 
-**[Road Access, Fertility, and Child Health in Rural India](/files/RoadAccessFertilityChild Health_2024_DasguptaKarandikarRaghav.pdf)**  
+**[Road Access, Fertility, and Child Health in Rural India](/files/RoadAccessFertilityChildHealth_2024_DasguptaKarandikarRaghav.pdf)**  
 (with [Aparajita Dasgupta](https://sites.google.com/ashoka.edu.in/aparajita-dasgupta) and Devvrat Raghav)  
 <span style="color: grey;"><em>Population and Development Review, 2024</em></span>
 
