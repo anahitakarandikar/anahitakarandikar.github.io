@@ -457,7 +457,7 @@ footer {
     color: #444; } }
     
 header h1 {
-  font-size: 30px;     /* Try 18px or 1.6em if still too wide */
+  font-size: 24px;     /* Try 18px or 1.6em if still too wide */
   line-height: 1.2;
   margin-bottom: 0.5em;
   word-break: keep-all;
