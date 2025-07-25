@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Women in Econ/Policy
-permalink: /mentorship/
 ---
 
 [**Women in Econ/Policy**](https://www.womenineconpolicy.com/) (a registered non-profit) is an India-based organisation working to correct the persistent gender gap in economics and policy.
