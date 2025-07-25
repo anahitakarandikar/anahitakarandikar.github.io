@@ -9,19 +9,19 @@ I received an MA in economics from Ashoka University and a BA in economics from 
 
 ---
 
-##  [CV](/assets/CV.pdf) | Email:  [ak234@mail.ubc.ca](mailto:ak234@mail.ubc.ca)
+####  [CV](/assets/CV.pdf) | Email:  [ak234@mail.ubc.ca](mailto:ak234@mail.ubc.ca)
 
 <a href="https://www.linkedin.com/in/anahita-karandikar" target="_blank">
-  <img src="/assets/linkedin.jpg" alt="LinkedIn" style="height: 20px; margin-right: 8px;">
+  <img src="/assets/linkedin.jpg" alt="LinkedIn" style="height: 25px; margin-right: 8px;">
 </a>
 <a href="https://x.com/anahitark" target="_blank">
-  <img src="/assets/x.jpg" alt="X" style="height: 20px; margin-right: 8px;">
+  <img src="/assets/x.jpg" alt="X" style="height: 25px; margin-right: 8px;">
 </a>
 <a href="https://bsky.app/profile/anahitark" target="_blank">
-  <img src="/assets/blusky.jpg" alt="Bluesky" style="height: 20px; margin-right: 8px;">
+  <img src="/assets/blusky.jpg" alt="Bluesky" style="height: 25px; margin-right: 8px;">
 </a>
 <a href="https://instagram.com/anahitakarandikar" target="_blank">
-  <img src="/assets/instagram.jpg" alt="Instagram" style="height: 20px; margin-right: 8px;">
+  <img src="/assets/instagram.jpg" alt="Instagram" style="height: 25px; margin-right: 8px;">
 </a>
 
 
