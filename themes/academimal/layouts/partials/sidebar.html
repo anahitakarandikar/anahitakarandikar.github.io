@@ -15,6 +15,25 @@
   <a href="mailto:ak234@student.ubc.ca">ak234@student.ubc.ca</a>
 </p>
 
+<!-- Social icons -->
+<div class="social-icons">
+  {{ with .Site.Params.social.github }}
+    <a href="{{ . }}" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+  {{ end }}
+  {{ with .Site.Params.social.linkedin }}
+    <a href="{{ . }}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  {{ end }}
+  {{ with .Site.Params.social.twitter }}
+    <a href="{{ . }}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+  {{ end }}
+  {{ with .Site.Params.social.instagram }}
+    <a href="{{ . }}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  {{ end }}
+  {{ with .Site.Params.social.bluesky }}
+    <a href="{{ . }}" target="_blank" aria-label="Bluesky" style="font-size: 1.3em;">🦋</a>
+  {{ end }}
+</div>
+
 <!-- Section Links -->
 <p class="contactinfo"><a href="{{ "#bio" | relURL }}">Bio</a></p>
 <p class="contactinfo"><a href="{{ "#research" | relURL }}">Research</a></p>
