@@ -6,21 +6,3 @@ body {
 a {
   color: #005F73;
 }
-
-/* Page titles and headings */
-h1, h2, h3 {
-  color: #6A1B1A;
-}
-
-footer a[href*="github.com"] {
-  display: none;
-}
-
-/* Limit logo size */
-img[alt="Site logo"] {
-  max-width: 180px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border-radius: 10px;
-}
