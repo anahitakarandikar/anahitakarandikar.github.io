@@ -1,6 +1,3 @@
-<!-- Name -->
-<h1 class="author-name">Anahita Karandikar</h1>
-
 <!-- Profile Photo -->
 {{ with .Site.Params.avatar }}
   <div class="profile-pic">
@@ -13,8 +10,12 @@
   <a href="{{ "files/CV.pdf" | relURL }}" target="_blank">CV</a>
 </p>
 
+<!-- Email -->
+<p class="contactinfo">
+  <a href="mailto:ak234@student.ubc.ca">ak234@student.ubc.ca</a>
+</p>
+
 <!-- Section Links -->
 <p class="contactinfo"><a href="{{ "#bio" | relURL }}">Bio</a></p>
 <p class="contactinfo"><a href="{{ "/research/" | relURL }}">Research</a></p>
 <p class="contactinfo"><a href="{{ "/women/" | relURL }}">Women in Econ/Policy</a></p>
-
