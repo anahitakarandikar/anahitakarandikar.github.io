@@ -15,7 +15,7 @@ theme = "academimal"
     url = "/"
     weight = 1
 
-    [[menu.main]]
+  [[menu.main]]
     name = "CV"
     url = "files/CV.pdf"
     weight = 2
@@ -23,9 +23,9 @@ theme = "academimal"
   [[menu.main]]
     name = "Research"
     url = "/research/"
-    weight = 2
+    weight = 3
 
   [[menu.main]]
     name = "Women in Econ/Policy"
     url = "/women/"
-    weight = 3
+    weight = 4
