@@ -42,7 +42,7 @@ title: ""
     <p>Hello! I am a PhD Candidate in Economics at the Vancouver School of Economics (University of British Columbia).
     My research fields are behavioural development economics and political economy, with a focus on gender and caste. I am a Director at <a href="https://www.womenineconpolicy.com/" target="_blank">Women in Econ/Policy</a>, an India-based non-profit working to reduce the gender gap in economics and public policy. </p>
     
-     <p>I received a MA in economics from Ashoka University and a BA in economics from Fergusson College, Pune. I was a research associate at the<a href="https://behavioraldevlab.org//" target="_blank">Behavioral Development Lab</a> at J-PAL South Asia, where I worked on projects related to mental health. </p>
+     <p>I received a MA in economics from Ashoka University and a BA in economics from Fergusson College, Pune. I was a research associate at the <a href="https://behavioraldevlab.org//" target="_blank">Behavioral Development Lab</a> at J-PAL South Asia, where I worked on projects related to mental health. </p>
    
 
   </div>
