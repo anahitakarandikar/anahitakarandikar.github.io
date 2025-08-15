@@ -19,7 +19,7 @@ weight: 3
 (with [Lisa Ho](https://lisayzho.github.io/) and [Suhani Jalota](https://www.suhanijalota.me/))  
 <span style="color: grey;"><em>Revise and resubmit at The Quarterly Journal of Economics</em></span>
 
-**Gender-Gap in Learning Outcomes Under Rainfall Shocks: The Role of Local Labour Markets**  
+**Rainfall Shocks and Learning Outcomes: Dynamic Persistence and the Role of Local Labour Demand**  
 (with [Aparajita Dasgupta](https://sites.google.com/ashoka.edu.in/aparajita-dasgupta))  
 <span style="color: grey;"><em>Revised and resubmitted at Economica</em></span>
 
