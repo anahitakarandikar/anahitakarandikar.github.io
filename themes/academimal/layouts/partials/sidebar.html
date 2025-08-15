@@ -26,9 +26,14 @@
   {{ with .Site.Params.social.twitter }}
     <a href="{{ . }}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
   {{ end }}
-  {{ with .Site.Params.social.instagram }}
-    <a href="{{ . }}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    {{ with .Site.Params.social.google_scholar }}
+    <a href="{{ . }}" target="_blank" aria-label="Google Scholar">
+      <img src="{{ "/icons/google-scholar.svg" | relURL }}" 
+           alt="Google Scholar" 
+           style="height:1em; vertical-align:middle;">
+    </a>
   {{ end }}
+
   {{ with .Site.Params.social.bluesky }}
     <a href="{{ . }}" target="_blank" aria-label="Bluesky" style="font-size: 1em;">🦋</a>
   {{ end }}
