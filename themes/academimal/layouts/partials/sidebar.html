@@ -15,6 +15,13 @@
   <a href="mailto:ak234@student.ubc.ca">ak234@student.ubc.ca</a>
 </p>
 
+<!-- Google Scholar -->
+{{ with .Site.Params.social.google_scholar }}
+  <p class="contactinfo">
+    <a href="{{ . }}" target="_blank">Google Scholar</a>
+  </p>
+{{ end }}
+
 <!-- Social icons -->
 <div class="social-icons">
   {{ with .Site.Params.social.github }}
@@ -26,14 +33,9 @@
   {{ with .Site.Params.social.twitter }}
     <a href="{{ . }}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
   {{ end }}
-    {{ with .Site.Params.social.google_scholar }}
-    <a href="{{ . }}" target="_blank" aria-label="Google Scholar">
-      <img src="{{ "/icons/google-scholar.svg" | relURL }}" 
-           alt="Google Scholar" 
-           style="height:1em; vertical-align:middle;">
-    </a>
+  {{ with .Site.Params.social.instagram }}
+    <a href="{{ . }}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
   {{ end }}
-
   {{ with .Site.Params.social.bluesky }}
     <a href="{{ . }}" target="_blank" aria-label="Bluesky" style="font-size: 1em;">🦋</a>
   {{ end }}
