@@ -21,7 +21,7 @@ weight: 3
 
 **Gender-Gap in Learning Outcomes Under Rainfall Shocks: The Role of Local Labour Markets**  
 (with [Aparajita Dasgupta](https://sites.google.com/ashoka.edu.in/aparajita-dasgupta))  
-<span style="color: grey;"><em>Revise and resubmit at Economica</em></span>
+<span style="color: grey;"><em>Revised and resubmitted at Economica</em></span>
 
 #### Selected Work in Progress
 
