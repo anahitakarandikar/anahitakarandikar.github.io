@@ -1,0 +1,420 @@
+{{ define "main" }}
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<style>
+  #coffee-map {
+    width: 100%;
+    height: 420px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    margin: 20px 0 10px 0;
+  }
+
+  .cafe-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  .cafe-table th {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 2px solid #e5e5e5;
+    color: #333;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .cafe-table th:hover { color: #005f73; }
+
+  .cafe-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+    color: #727272;
+  }
+
+  .cafe-table tr:hover td { background-color: #fafafa; }
+  .cafe-table tr { cursor: pointer; }
+
+  .cafe-name-cell {
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+  }
+
+  .cafe-name-cell a {
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px dotted #aaa;
+  }
+
+  .cafe-name-cell a:hover { color: #005f73; border-bottom-color: #005f73; }
+
+  .rating-stars { color: #8B6914; white-space: nowrap; }
+
+  .tag {
+    display: inline-block;
+    background: #f4f4f4;
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 11px;
+    color: #666;
+    margin: 1px 2px 1px 0;
+    white-space: nowrap;
+  }
+
+  .filter-bar {
+    margin: 14px 0 6px 0;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 13px;
+    color: #727272;
+  }
+
+  .filter-bar label { margin-right: 4px; }
+
+  .filter-bar select,
+  .filter-bar input[type="text"] {
+    font-size: 13px;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    color: #555;
+    background: #fff;
+    font-family: inherit;
+  }
+
+  .intro-note {
+    font-style: italic;
+    color: #999;
+    font-size: 13px;
+    margin-top: -4px;
+    margin-bottom: 18px;
+  }
+
+  .loading-msg {
+    color: #999;
+    font-style: italic;
+    font-size: 13px;
+    padding: 14px 10px;
+  }
+
+  .leaflet-popup-content {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    min-width: 180px;
+  }
+
+  .popup-name { font-weight: 700; color: #333; font-size: 14px; margin-bottom: 4px; }
+  .popup-ratings { color: #8B6914; margin-bottom: 3px; }
+  .popup-tags { margin-bottom: 3px; }
+  .popup-notes { color: #777; font-style: italic; font-size: 12px; }
+
+  #cafe-count { font-size: 12px; color: #999; margin-top: 6px; }
+
+  .closed-row td { opacity: 0.5; }
+  .closed-badge {
+    font-size: 10px;
+    color: #999;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0 4px;
+    margin-left: 4px;
+    font-weight: normal;
+    vertical-align: middle;
+  }
+</style>
+
+<h2>Coffee &amp; Croissants</h2>
+<p class="intro-note">A running list of cafes I have tried and ranked in Vancouver. Ratings out of 5, assessed rigorously. Click a row to locate on the map.</p>
+
+<div class="filter-bar">
+  <div>
+    <label for="filter-category">Show:</label>
+    <select id="filter-category" onchange="applyFilters()">
+      <option value="all">All cafes</option>
+      <option value="coffee">Coffee ≥ 4</option>
+      <option value="croissant">Croissant ≥ 4</option>
+    </select>
+  </div>
+  <div>
+    <label for="filter-tag">Label:</label>
+    <select id="filter-tag" onchange="applyFilters()">
+      <option value="">All</option>
+    </select>
+  </div>
+  <div>
+    <label for="filter-search">Search:</label>
+    <input type="text" id="filter-search" placeholder="cafe name..." oninput="applyFilters()" style="width:130px;">
+  </div>
+</div>
+
+<div id="coffee-map"></div>
+<div id="cafe-count"></div>
+
+<table class="cafe-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('name')">Cafe</th>
+      <th onclick="sortTable('coffee')">Coffee</th>
+      <th onclick="sortTable('croissant')">Croissant</th>
+      <th>Labels</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody id="cafe-tbody">
+    <tr><td colspan="5" class="loading-msg">Loading cafes...</td></tr>
+  </tbody>
+</table>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+<script>
+// Column indices (0-based) matching the Excel structure:
+// A=Name, B=City, C=Location link, D=Coffee, E=Croissant, F=Labels, G-J=unused, K=Lat, L=Lng, M=Notes
+const COL = { name:0, city:1, link:2, coffee:3, croissant:4, labels:5, lat:10, lng:11, notes:12 };
+
+let allCafes = [];
+let currentCafes = [];
+let markers = {};
+let sortKey = 'coffee';
+let sortDir = -1;
+let map;
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+function ratingNum(val) {
+  if (!val || val === '-') return 0;
+  const n = parseFloat(val);
+  return isNaN(n) ? 0 : n;
+}
+
+function ratingDisplay(val) {
+  const n = ratingNum(val);
+  if (!n) return '<span style="color:#ccc">—</span>';
+  return `<span class="rating-stars">${n.toFixed(1)}</span>`;
+}
+
+function avgRating(cafe) {
+  const c = ratingNum(cafe.coffee);
+  const p = ratingNum(cafe.croissant);
+  if (c && p) return (c + p) / 2;
+  return c || p;
+}
+
+function markerColor(cafe) {
+  const avg = avgRating(cafe);
+  if (avg >= 4.5) return '#005f73';
+  if (avg >= 4.0) return '#2a9d8f';
+  if (avg >= 3.0) return '#e9c46a';
+  return '#aaa';
+}
+
+function isClosed(cafe) {
+  return cafe.name.toLowerCase().includes('[closed]');
+}
+
+function cleanName(name) {
+  return name.replace(/\s*\[closed\]/i, '').trim();
+}
+
+// ── Map ───────────────────────────────────────────────────────────────────────
+
+function initMap() {
+  map = L.map('coffee-map').setView([49.2600, -123.1700], 12);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd', maxZoom: 19
+  }).addTo(map);
+
+  const legend = L.control({ position: 'bottomright' });
+  legend.onAdd = () => {
+    const div = L.DomUtil.create('div');
+    div.style.cssText = 'background:#fff;padding:8px 12px;border:1px solid #ddd;border-radius:4px;font-size:12px;font-family:"Open Sans",sans-serif;line-height:2;';
+    div.innerHTML = `
+      <div style="font-weight:700;margin-bottom:2px;color:#444;">Avg. rating</div>
+      <div><span style="color:#005f73;font-size:15px">●</span> 4.5+</div>
+      <div><span style="color:#2a9d8f;font-size:15px">●</span> 4.0 – 4.4</div>
+      <div><span style="color:#e9c46a;font-size:15px">●</span> 3.0 – 3.9</div>
+      <div><span style="color:#aaa;font-size:15px">●</span> &lt; 3.0</div>
+    `;
+    return div;
+  };
+  legend.addTo(map);
+}
+
+function buildMarkers(cafes) {
+  Object.values(markers).forEach(m => map.removeLayer(m));
+  markers = {};
+
+  cafes.forEach(cafe => {
+    if (!cafe.lat || !cafe.lng) return;
+    const color = markerColor(cafe);
+    const opacity = isClosed(cafe) ? 0.4 : 1;
+    const icon = L.divIcon({
+      className: '',
+      html: `<div style="width:13px;height:13px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.3);opacity:${opacity};"></div>`,
+      iconSize: [13,13], iconAnchor: [6,6], popupAnchor: [0,-10]
+    });
+
+    const coffeeFmt = ratingNum(cafe.coffee) ? ratingNum(cafe.coffee).toFixed(1) : '—';
+    const croissantFmt = ratingNum(cafe.croissant) ? ratingNum(cafe.croissant).toFixed(1) : '—';
+    const tagsHtml = cafe.tags.length ? `<div class="popup-tags">${cafe.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>` : '';
+    const notesHtml = cafe.notes ? `<div class="popup-notes">${cafe.notes}</div>` : '';
+    const linkHtml = cafe.link && cafe.link.startsWith('http')
+      ? `<div style="margin-top:5px"><a href="${cafe.link}" target="_blank" style="font-size:11px;color:#005f73;">Open in Google Maps ↗</a></div>` : '';
+
+    const popup = `
+      <div class="popup-name">${cleanName(cafe.name)}${isClosed(cafe) ? ' <span class="closed-badge">closed</span>' : ''}</div>
+      <div class="popup-ratings">☕ ${coffeeFmt} &nbsp;&nbsp; 🥐 ${croissantFmt}</div>
+      ${tagsHtml}${notesHtml}${linkHtml}
+    `;
+
+    markers[cafe._origIdx] = L.marker([cafe.lat, cafe.lng], { icon }).addTo(map).bindPopup(popup);
+  });
+}
+
+// ── Table ─────────────────────────────────────────────────────────────────────
+
+function renderTable(cafes) {
+  const tbody = document.getElementById('cafe-tbody');
+  tbody.innerHTML = '';
+
+  if (!cafes.length) {
+    tbody.innerHTML = '<tr><td colspan="5" style="color:#999;font-style:italic;padding:12px 10px;">No cafes match the current filters.</td></tr>';
+    document.getElementById('cafe-count').textContent = '';
+    return;
+  }
+
+  cafes.forEach(cafe => {
+    const tr = document.createElement('tr');
+    if (isClosed(cafe)) tr.classList.add('closed-row');
+
+    tr.onclick = () => {
+      const m = markers[cafe._origIdx];
+      if (m) { map.setView([cafe.lat, cafe.lng], 15); m.openPopup(); }
+    };
+
+    const nameHtml = cafe.link && cafe.link.startsWith('http')
+      ? `<a href="${cafe.link}" target="_blank" onclick="event.stopPropagation()">${cleanName(cafe.name)}</a>${isClosed(cafe) ? ' <span class="closed-badge">closed</span>' : ''}`
+      : `${cleanName(cafe.name)}${isClosed(cafe) ? ' <span class="closed-badge">closed</span>' : ''}`;
+
+    tr.innerHTML = `
+      <td class="cafe-name-cell">${nameHtml}</td>
+      <td>${ratingDisplay(cafe.coffee)}</td>
+      <td>${ratingDisplay(cafe.croissant)}</td>
+      <td>${cafe.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</td>
+      <td style="font-size:12px;color:#999;font-style:italic;">${cafe.notes}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('cafe-count').textContent =
+    `Showing ${cafes.length} of ${allCafes.length} cafes`;
+}
+
+// ── Filters & sort ────────────────────────────────────────────────────────────
+
+function applyFilters() {
+  const category = document.getElementById('filter-category').value;
+  const tag = document.getElementById('filter-tag').value;
+  const search = document.getElementById('filter-search').value.toLowerCase().trim();
+
+  currentCafes = allCafes.filter(cafe => {
+    if (category === 'coffee' && ratingNum(cafe.coffee) < 4) return false;
+    if (category === 'croissant' && ratingNum(cafe.croissant) < 4) return false;
+    if (tag && !cafe.tags.includes(tag)) return false;
+    if (search && !cafe.name.toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  buildMarkers(currentCafes);
+  sortAndRender();
+}
+
+function sortTable(key) {
+  if (sortKey === key) sortDir *= -1;
+  else { sortKey = key; sortDir = key === 'name' ? 1 : -1; }
+  sortAndRender();
+}
+
+function sortAndRender() {
+  const sorted = [...currentCafes].sort((a, b) => {
+    if (sortKey === 'name') return sortDir * cleanName(a.name).localeCompare(cleanName(b.name));
+    if (sortKey === 'coffee') return sortDir * (ratingNum(a.coffee) - ratingNum(b.coffee));
+    if (sortKey === 'croissant') return sortDir * (ratingNum(a.croissant) - ratingNum(b.croissant));
+    return 0;
+  });
+  renderTable(sorted);
+}
+
+// ── Load Excel ────────────────────────────────────────────────────────────────
+
+async function loadCafes() {
+  try {
+    const resp = await fetch('/data/cafes.xlsx');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const buf = await resp.arrayBuffer();
+    const wb = XLSX.read(buf, { type: 'array' });
+    const ws = wb.Sheets[wb.SheetNames[0]];
+    const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null });
+
+    const allTags = new Set();
+
+    allCafes = rows.slice(1)
+      .filter(r => r[COL.name])
+      .map((r, i) => {
+        const rawLabels = r[COL.labels];
+        const tags = rawLabels
+          ? String(rawLabels).split(',').map(t => t.trim()).filter(Boolean)
+          : [];
+        tags.forEach(t => allTags.add(t));
+
+        return {
+          _origIdx: i,
+          name:      String(r[COL.name] || ''),
+          city:      String(r[COL.city] || ''),
+          link:      r[COL.link] ? String(r[COL.link]) : '',
+          coffee:    r[COL.coffee],
+          croissant: r[COL.croissant],
+          tags,
+          lat:       r[COL.lat]   != null ? parseFloat(r[COL.lat])  : null,
+          lng:       r[COL.lng]   != null ? parseFloat(r[COL.lng])  : null,
+          notes:     r[COL.notes] != null ? String(r[COL.notes])    : '',
+        };
+      });
+
+    // Populate tag filter
+    const tagSelect = document.getElementById('filter-tag');
+    [...allTags].sort().forEach(tag => {
+      const opt = document.createElement('option');
+      opt.value = tag; opt.textContent = tag;
+      tagSelect.appendChild(opt);
+    });
+
+    currentCafes = [...allCafes];
+    buildMarkers(currentCafes);
+    sortAndRender();
+
+  } catch (err) {
+    document.getElementById('cafe-tbody').innerHTML =
+      `<tr><td colspan="5" style="color:#c00;font-size:12px;padding:12px 10px;">Error loading cafe data: ${err.message}</td></tr>`;
+    console.error(err);
+  }
+}
+
+initMap();
+loadCafes();
+</script>
+
+{{ end }}

@@ -38,3 +38,13 @@ theme = "academimal"
     name = "Women in Econ/Policy"
     url = "/women/"
     weight = 4
+
+  [[menu.main]]
+    name = "Coffee & Croissants"
+    url = "/coffee/"
+    weight = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
