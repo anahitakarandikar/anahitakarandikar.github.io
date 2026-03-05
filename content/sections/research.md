@@ -5,6 +5,10 @@ weight: 3
 ---
 #### Publications
 
+**[Rainfall Shocks and Learning Outcomes: Dynamic Persistence and the Role of Local Labour Demand](/files/RainfallShocks_2026_DasguptaKarandikar.pdf)**  
+(with [Aparajita Dasgupta](https://sites.google.com/ashoka.edu.in/aparajita-dasgupta))  
+<span style="color: grey;"><em>Accepted, Economica</em></span>
+
 **[Learning from Job Offers About Labor Supply Constraints](/files/LearningfromJobOffers_2025_HoJalotaKarandikar.pdf)**  
 (with [Lisa Ho](https://lisayzho.github.io/) and [Suhani Jalota](https://www.suhanijalota.me/))  
 <span style="color: grey;"><em>AEA Papers and Proceedings, 2025</em></span>
@@ -19,9 +23,6 @@ weight: 3
 (with [Lisa Ho](https://lisayzho.github.io/) and [Suhani Jalota](https://www.suhanijalota.me/))  
 <span style="color: grey;"><em>Revise and resubmit at The Quarterly Journal of Economics</em></span>
 
-**Rainfall Shocks and Learning Outcomes: Dynamic Persistence and the Role of Local Labour Demand**  
-(with [Aparajita Dasgupta](https://sites.google.com/ashoka.edu.in/aparajita-dasgupta))  
-<span style="color: grey;"><em>Revised and resubmitted at Economica</em></span>
 
 #### Selected Work in Progress
 
