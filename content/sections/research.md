@@ -21,7 +21,7 @@ weight: 3
 
 **[Bringing Work Home: Flexible Arrangements as Gateway Jobs for Women in West Bengal](/files/BringingWorkHome_2025wp_HoJalotaKarandikar.pdf)**  
 (with [Lisa Ho](https://lisayzho.github.io/) and [Suhani Jalota](https://www.suhanijalota.me/))  
-<span style="color: grey;"><em>Revise and resubmit at The Quarterly Journal of Economics</em></span>
+<span style="color: grey;"><em>Resubmitted at The Quarterly Journal of Economics</em></span>
 
 
 #### Selected Work in Progress
