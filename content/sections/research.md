@@ -6,7 +6,7 @@ weight: 3
 #### Publications
 **[Bringing Work Home: Flexible Arrangements as Gateway Jobs for Women in West Bengal](/files/BringingWorkHome_2026_HoJalotaKarandikar.pdf)**  
 (with [Lisa Ho](https://lisayzho.github.io/) and [Suhani Jalota](https://www.suhanijalota.me/))  
-<span style="color: grey;"><em>Accepted, The Quarterly Journal of Economics</em></span>
+<span style="color: grey;"><em>The Quarterly Journal of Economics, 2026</em></span>
 
 
 **[Rainfall Shocks and Learning Outcomes: Dynamic Persistence and the Role of Local Labour Demand](/files/RainfallShocks_2026_DasguptaKarandikar.pdf)**  
